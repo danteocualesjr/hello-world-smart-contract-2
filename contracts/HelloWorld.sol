@@ -19,6 +19,14 @@ contract HelloWorld {
    constructor(string memory initMessage) {
 
     // Accepts a string argument `initMessage` and sets the value into the contract's `message` storage variable).
-    message = initMessage;
+        message = initMessage;
+    }
+
+// A public function that accepts a string argument and updates the `message` storage variable.
+   function update(string memory newMessage) public {
+      string memory oldMsg = message;
+      message = newMessage;
+      emit UpdatedMessages(oldMsg, newMessage);
+   }
 }
 
